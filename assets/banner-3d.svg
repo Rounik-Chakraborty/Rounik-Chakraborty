@@ -1,0 +1,346 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGlow3D" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#2A0A4A" stop-opacity="0.9" />
+      <stop offset="35%" stop-color="#130524" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#050505" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Super Concentrated Spotlight Behind RK -->
+    <radialGradient id="rkSpotlight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.75" />
+      <stop offset="30%" stop-color="#8B5CF6" stop-opacity="0.45" />
+      <stop offset="65%" stop-color="#6D28D9" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#6D28D9" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="neonPurpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6D28D9" />
+      <stop offset="30%" stop-color="#8B5CF6" />
+      <stop offset="70%" stop-color="#C084FC" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+
+    <linearGradient id="laserGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0" />
+      <stop offset="50%" stop-color="#C084FC" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="cyberBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.9" />
+      <stop offset="30%" stop-color="#2A0A4A" stop-opacity="0.4" />
+      <stop offset="70%" stop-color="#2A0A4A" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- ULTRA-INTENSE NEON GLOW FILTERS -->
+    <filter id="superNeonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16" result="blurDeep" />
+      <feGaussianBlur stdDeviation="8" result="blurMid" />
+      <feGaussianBlur stdDeviation="3" result="blurCore" />
+      <feMerge>
+        <feMergeNode in="blurDeep" />
+        <feMergeNode in="blurMid" />
+        <feMergeNode in="blurCore" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="laserGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Isometric 3D Grid -->
+    <pattern id="isoGrid" width="60" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 0 15 L 30 0 L 60 15 L 30 30 Z" fill="none" stroke="#8B5CF6" stroke-width="0.8" stroke-opacity="0.15" />
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes spinRing1 {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes spinRing2 {
+      0% { transform: rotate(360deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes laserSweep {
+      0% { transform: translateY(-50px); opacity: 0; }
+      20% { opacity: 0.9; }
+      80% { opacity: 0.9; }
+      100% { transform: translateY(450px); opacity: 0; }
+    }
+
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes pulseAura {
+      0%, 100% { transform: scale(1); opacity: 0.75; }
+      50% { transform: scale(1.18); opacity: 1; }
+    }
+
+    @keyframes neonFlicker {
+      0%, 100% {
+        filter: drop-shadow(0 0 12px #A855F7) drop-shadow(0 0 32px #8B5CF6) drop-shadow(0 0 60px #6D28D9);
+        opacity: 1;
+      }
+      50% {
+        filter: drop-shadow(0 0 20px #C084FC) drop-shadow(0 0 45px #A855F7) drop-shadow(0 0 85px #8B5CF6);
+        opacity: 0.96;
+      }
+    }
+
+    @keyframes dashStream {
+      0% { stroke-dashoffset: 200; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    @keyframes particleOrbit {
+      0% { transform: rotate(0deg) translateX(110px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(110px) rotate(-360deg); }
+    }
+
+    @keyframes particleOrbit2 {
+      0% { transform: rotate(180deg) translateX(140px) rotate(-180deg); }
+      100% { transform: rotate(540deg) translateX(140px) rotate(-540deg); }
+    }
+
+    .rk-neon-glow {
+      animation: neonFlicker 3s ease-in-out infinite;
+    }
+
+    .spotlight-pulse {
+      animation: pulseAura 4s ease-in-out infinite;
+      transform-origin: 600px 165px;
+    }
+
+    .core-orbit-1 {
+      transform-origin: 600px 165px;
+      animation: spinRing1 12s linear infinite;
+    }
+
+    .core-orbit-2 {
+      transform-origin: 600px 165px;
+      animation: spinRing2 16s linear infinite;
+    }
+
+    .laser-line {
+      animation: laserSweep 5s ease-in-out infinite;
+    }
+
+    .floating-identity {
+      animation: floatText 4s ease-in-out infinite;
+      transform-origin: 600px 165px;
+    }
+
+    .stream-fast {
+      stroke-dasharray: 15, 25;
+      animation: dashStream 3s linear infinite;
+    }
+
+    .stream-slow {
+      stroke-dasharray: 20, 40;
+      animation: dashStream 5s linear infinite;
+    }
+
+    .particle-1 {
+      transform-origin: 600px 165px;
+      animation: particleOrbit 6s linear infinite;
+    }
+
+    .particle-2 {
+      transform-origin: 600px 165px;
+      animation: particleOrbit2 9s linear infinite;
+    }
+
+    .hud-mono {
+      font-family: 'Fira Code', 'SF Mono', 'Segoe UI Mono', monospace;
+      letter-spacing: 2px;
+    }
+
+    .title-font {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 900;
+      letter-spacing: 16px;
+    }
+  </style>
+
+  <!-- BACKGROUND BASE CANVAS -->
+  <rect width="1200" height="420" rx="18" fill="#050505" />
+  <rect width="1200" height="420" rx="18" fill="url(#bgGlow3D)" />
+
+  <!-- 3D PERSPECTIVE ISOMETRIC FLOOR -->
+  <g opacity="0.8">
+    <rect y="220" width="1200" height="200" rx="0" fill="url(#isoGrid)" />
+  </g>
+
+  <!-- LASER SCANNING BEAM -->
+  <g class="laser-line">
+    <line x1="80" y1="0" x2="1120" y2="0" stroke="url(#laserGrad)" stroke-width="2.5" filter="url(#superNeonGlow)" />
+  </g>
+
+  <!-- CONCENTRATED SPOTLIGHT BACKPLATE DIRECTLY BEHIND RK -->
+  <circle cx="600" cy="165" r="230" fill="url(#rkSpotlight)" class="spotlight-pulse" />
+  <circle cx="600" cy="165" r="140" fill="url(#rkSpotlight)" class="spotlight-pulse" />
+
+  <!-- 3D ROTATING ORBITAL RINGS (BEHIND CORE) -->
+  <g class="core-orbit-1" opacity="0.85">
+    <ellipse cx="600" cy="165" rx="185" ry="65" fill="none" stroke="#A855F7" stroke-width="2" stroke-dasharray="16 10 4 10" filter="url(#superNeonGlow)" />
+  </g>
+
+  <g class="core-orbit-2" opacity="0.75">
+    <ellipse cx="600" cy="165" rx="225" ry="80" fill="none" stroke="#C084FC" stroke-width="1.8" stroke-dasharray="28 14 8 14" filter="url(#superNeonGlow)" />
+  </g>
+
+  <!-- LEFT NEURAL STREAM HIGHWAY -->
+  <g stroke="#A855F7" stroke-opacity="0.45" stroke-width="1.8">
+    <path d="M 40 100 Q 200 60 380 140 T 480 165" fill="none" class="stream-fast" />
+    <path d="M 40 175 Q 180 220 340 160 T 480 165" fill="none" class="stream-slow" />
+    <path d="M 60 280 Q 240 320 380 240 T 480 165" fill="none" class="stream-fast" />
+  </g>
+
+  <!-- RIGHT NEURAL STREAM HIGHWAY -->
+  <g stroke="#A855F7" stroke-opacity="0.45" stroke-width="1.8">
+    <path d="M 1160 100 Q 1000 60 820 140 T 720 165" fill="none" class="stream-fast" />
+    <path d="M 1160 175 Q 1020 220 860 160 T 720 165" fill="none" class="stream-slow" />
+    <path d="M 1140 280 Q 960 320 820 240 T 720 165" fill="none" class="stream-fast" />
+  </g>
+
+  <!-- LEFT 3D FLOATING DATA NODES -->
+  <g fill="#C084FC" filter="url(#superNeonGlow)">
+    <circle cx="120" cy="90" r="4.5" />
+    <circle cx="260" cy="75" r="5.5" />
+    <circle cx="360" cy="135" r="4.5" />
+    <circle cx="180" cy="220" r="4" />
+    <circle cx="320" cy="265" r="5" />
+    <circle cx="100" cy="310" r="3.5" />
+  </g>
+  <!-- LEFT WIREFRAME CONNECTIONS -->
+  <g stroke="#8B5CF6" stroke-width="1.2" stroke-opacity="0.45">
+    <line x1="120" y1="90" x2="260" y2="75" />
+    <line x1="260" y1="75" x2="360" y2="135" />
+    <line x1="120" y1="90" x2="180" y2="220" />
+    <line x1="180" y1="220" x2="320" y2="265" />
+    <line x1="320" y1="265" x2="100" y2="310" />
+  </g>
+
+  <!-- RIGHT 3D FLOATING DATA NODES -->
+  <g fill="#C084FC" filter="url(#superNeonGlow)">
+    <circle cx="1080" cy="90" r="4.5" />
+    <circle cx="940" cy="75" r="5.5" />
+    <circle cx="840" cy="135" r="4.5" />
+    <circle cx="1020" cy="220" r="4" />
+    <circle cx="880" cy="265" r="5" />
+    <circle cx="1100" cy="310" r="3.5" />
+  </g>
+  <!-- RIGHT WIREFRAME CONNECTIONS -->
+  <g stroke="#8B5CF6" stroke-width="1.2" stroke-opacity="0.45">
+    <line x1="1080" y1="90" x2="940" y2="75" />
+    <line x1="940" y1="75" x2="840" y2="135" />
+    <line x1="1080" y1="90" x2="1020" y2="220" />
+    <line x1="1020" y1="220" x2="880" y2="265" />
+    <line x1="880" y1="265" x2="1100" y2="310" />
+  </g>
+
+  <!-- 3D ORBITING SATELLITE PARTICLES -->
+  <circle cx="600" cy="165" r="6" fill="#FFFFFF" filter="url(#superNeonGlow)" class="particle-1" />
+  <circle cx="600" cy="165" r="5" fill="#E9D5FF" filter="url(#superNeonGlow)" class="particle-2" />
+
+  <!-- 3D CENTER FLOATING IDENTITY BLOCK -->
+  <g class="floating-identity">
+    
+    <!-- TOP STATUS BADGE -->
+    <g transform="translate(460, 48)">
+      <rect x="0" y="0" width="280" height="30" rx="15" fill="#0D0D0D" fill-opacity="0.9" stroke="#8B5CF6" stroke-width="1.5" filter="url(#laserGlow)" />
+      <circle cx="22" cy="15" r="5" fill="#C084FC" filter="url(#superNeonGlow)" />
+      <text x="38" y="19" fill="#F5F3FF" class="hud-mono" font-size="11" font-weight="700">AI CORE // v4.5 ONLINE</text>
+    </g>
+
+    <!-- HIGH-VOLTAGE ULTRA-BRIGHT NEON "RK" MONOGRAM -->
+    <g class="rk-neon-glow" transform="translate(600, 168)">
+      <!-- Layer 1: Deep Outer Neon Violet Bloom Halo -->
+      <text x="0" y="0" text-anchor="middle" class="title-font" font-size="102" fill="none" stroke="#6D28D9" stroke-width="18" stroke-linejoin="round" opacity="0.9" filter="url(#superNeonGlow)">
+        RK
+      </text>
+
+      <!-- Layer 2: Electric Magenta/Violet Luminous Glow Outline -->
+      <text x="0" y="0" text-anchor="middle" class="title-font" font-size="102" fill="none" stroke="#A855F7" stroke-width="10" stroke-linejoin="round" opacity="1" filter="url(#superNeonGlow)">
+        RK
+      </text>
+
+      <!-- Layer 3: Bright Lavender Radiant Inline -->
+      <text x="0" y="0" text-anchor="middle" class="title-font" font-size="102" fill="#E9D5FF" stroke="#C084FC" stroke-width="4" stroke-linejoin="round" filter="url(#laserGlow)">
+        RK
+      </text>
+
+      <!-- Layer 4: Brilliant Pure White Luminous Core -->
+      <text x="0" y="0" text-anchor="middle" class="title-font" font-size="102" fill="#FFFFFF">
+        RK
+      </text>
+    </g>
+
+    <!-- 3D HOLOGRAPHIC ACCENT DIVIDER -->
+    <g transform="translate(600, 214)">
+      <line x1="-250" y1="0" x2="250" y2="0" stroke="url(#neonPurpleGrad)" stroke-width="3" filter="url(#superNeonGlow)" />
+      <!-- Center Glowing Diamond -->
+      <polygon points="0,-7 7,0 0,7 -7,0" fill="#FFFFFF" filter="url(#superNeonGlow)" />
+      <!-- Flank Accents -->
+      <circle cx="-180" cy="0" r="3.5" fill="#C084FC" filter="url(#superNeonGlow)" />
+      <circle cx="180" cy="0" r="3.5" fill="#C084FC" filter="url(#superNeonGlow)" />
+    </g>
+
+    <!-- SUBTITLE WITH CRISP CONTRAST -->
+    <text x="600" y="254" text-anchor="middle" class="hud-mono" font-size="15" font-weight="700" fill="#F5F3FF" filter="url(#laserGlow)">
+      AI • MACHINE LEARNING • INTELLIGENT SYSTEMS
+    </text>
+
+    <!-- TECHNICAL CAPABILITY PILL -->
+    <g transform="translate(600, 298)">
+      <rect x="-270" y="-14" width="540" height="28" rx="6" fill="#0D0D0D" fill-opacity="0.95" stroke="#8B5CF6" stroke-width="1.2" />
+      <text x="0" y="4" text-anchor="middle" class="hud-mono" font-size="11" font-weight="600" fill="#C084FC">
+        [ NEURAL ARCHITECTURES // COMPUTER VISION // MLOPS ]
+      </text>
+    </g>
+
+  </g>
+
+  <!-- CORNER CYBERNETIC BRACKETS -->
+  <g stroke="#A855F7" stroke-width="2" opacity="0.9">
+    <!-- Top-Left -->
+    <path d="M 28 56 L 28 28 L 56 28" fill="none" />
+    <rect x="34" y="34" width="5" height="5" fill="#C084FC" filter="url(#laserGlow)" />
+    <!-- Top-Right -->
+    <path d="M 1172 56 L 1172 28 L 1144 28" fill="none" />
+    <rect x="1161" y="34" width="5" height="5" fill="#C084FC" filter="url(#laserGlow)" />
+    <!-- Bottom-Left -->
+    <path d="M 28 364 L 28 392 L 56 392" fill="none" />
+    <rect x="34" y="381" width="5" height="5" fill="#C084FC" filter="url(#laserGlow)" />
+    <!-- Bottom-Right -->
+    <path d="M 1172 364 L 1172 392 L 1144 392" fill="none" />
+    <rect x="1161" y="381" width="5" height="5" fill="#C084FC" filter="url(#laserGlow)" />
+  </g>
+
+  <!-- OUTER FRAME -->
+  <rect x="14" y="14" width="1172" height="392" rx="14" fill="none" stroke="url(#cyberBorder)" stroke-width="1.8" />
+
+  <!-- FOOTER HUD TELEMETRY -->
+  <text x="50" y="380" class="hud-mono" font-size="10" fill="#8B5CF6" font-weight="600">SYSTEM_CLOCK: 120 FPS // 3D_MATRIX_ACTIVE</text>
+  <text x="1150" y="380" text-anchor="end" class="hud-mono" font-size="10" fill="#8B5CF6" font-weight="600">AI_ENGINE: PRODUCTION_READY</text>
+</svg>

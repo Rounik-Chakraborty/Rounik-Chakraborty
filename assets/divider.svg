@@ -1,0 +1,28 @@
+<svg width="900" height="24" viewBox="0 0 900 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="divGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#050505" stop-opacity="0" />
+      <stop offset="25%" stop-color="#6D28D9" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#A855F7" stop-opacity="1" />
+      <stop offset="75%" stop-color="#6D28D9" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+    </linearGradient>
+    <filter id="divGlow" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Central glowing line -->
+  <line x1="50" y1="12" x2="850" y2="12" stroke="url(#divGrad)" stroke-width="1.5" filter="url(#divGlow)" />
+
+  <!-- Center Diamond + Nodes -->
+  <polygon points="450,7 455,12 450,17 445,12" fill="#F5F3FF" filter="url(#divGlow)" />
+  <circle cx="430" cy="12" r="2" fill="#8B5CF6" />
+  <circle cx="470" cy="12" r="2" fill="#8B5CF6" />
+  <circle cx="250" cy="12" r="1.5" fill="#6D28D9" opacity="0.8" />
+  <circle cx="650" cy="12" r="1.5" fill="#6D28D9" opacity="0.8" />
+</svg>

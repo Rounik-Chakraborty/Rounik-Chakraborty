@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile Preview // RK - AI & Machine Learning</title>
+  <style>
+    :root {
+      --bg-color: #050505;
+      --card-bg: #0D0D0D;
+      --border-color: #2A0A4A;
+      --primary-purple: #6D28D9;
+      --electric-violet: #8B5CF6;
+      --bright-purple: #A855F7;
+      --text-main: #F5F3FF;
+      --text-muted: #C4B5FD;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #050505;
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .github-container {
+      max-width: 920px;
+      width: 100%;
+      background-color: #0D0D0D;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 0 40px rgba(109, 40, 217, 0.15);
+    }
+
+    .hero-center {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .hero-banner {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15);
+    }
+
+    .typing-box {
+      margin: 16px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .divider {
+      width: 100%;
+      margin: 20px 0 32px 0;
+    }
+
+    h2 {
+      color: #FFFFFF;
+      font-size: 1.4rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin: 32px 0 18px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 1px;
+    }
+
+    h3 {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 16px;
+      margin-bottom: 16px;
+    }
+
+    .focus-card {
+      background: #050505;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .focus-card ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .focus-card li {
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+      color: #E2E8F0;
+    }
+
+    .focus-card li b {
+      color: var(--bright-purple);
+    }
+
+    .project-card {
+      background: #050505;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 22px;
+      margin-bottom: 18px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--electric-violet);
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+    }
+
+    .project-card h3 {
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .project-card code {
+      background: #2A0A4A;
+      color: #A855F7;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: monospace;
+    }
+
+    .project-card p {
+      font-size: 0.93rem;
+      color: #CBD5E1;
+      margin-bottom: 14px;
+    }
+
+    .btn-repo {
+      display: inline-block;
+      background: var(--primary-purple);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      float: right;
+    }
+
+    .tech-stack-group {
+      text-align: center;
+      margin: 16px 0;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-spacing: 12px;
+    }
+
+    .stats-table td {
+      background: #050505;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .philosophy-box {
+      text-align: center;
+      padding: 24px;
+      background: #050505;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin: 24px 0;
+    }
+
+    .footer-connect {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .footer-connect a {
+      display: inline-block;
+      margin: 0 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="github-container">
+
+    <!-- HERO BANNER -->
+    <div class="hero-center">
+      <img src="./assets/banner-3d.svg" class="hero-banner" alt="3D Animated Banner" />
+      
+      <div class="typing-box">
+        <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&duration=3200&pause=1000&color=8B5CF6&center=true&vCenter=true&multiline=false&width=620&height=40&lines=Building+intelligent+systems;Exploring+artificial+intelligence;Developing+machine+learning+solutions;Working+on+computer+vision;Turning+ideas+into+working+products;Building+projects+beyond+tutorials" alt="Typing SVG" />
+      </div>
+
+      <div class="pills">
+        <img src="https://img.shields.io/badge/CORE-3D%20NEURAL%20MATRIX-8B5CF6?style=for-the-badge&logoColor=F5F3FF&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/DOMAIN-AI%20%26%20MACHINE%20LEARNING-6D28D9?style=for-the-badge&logoColor=F5F3FF&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/STATUS-ACTIVE%20BUILDING-2A0A4A?style=for-the-badge&logoColor=A855F7&labelColor=0D0D0D" />
+      </div>
+
+      <img src="./assets/divider.svg" class="divider" />
+    </div>
+
+    <!-- SECTION 2: ABOUT ME & 3D NEURAL CORE -->
+    <h2>🔮 ABOUT ME & 3D NEURAL LAB</h2>
+    <table>
+      <tr>
+        <td width="55%" class="focus-card" style="vertical-align: middle;">
+          <h3 style="color:#A855F7;">⚡ DEVELOPER IDENTITY</h3>
+          <p style="margin-bottom: 12px; font-size: 0.95rem; color:#E2E8F0;">
+            I am an <b>AI / Machine Learning developer</b> focused on engineering robust theoretical models into scalable, production-grade systems.
+          </p>
+          <p style="margin-bottom: 14px; font-size: 0.95rem; color:#CBD5E1;">
+            My technical work spans <b>Deep Learning architectures</b>, <b>Computer Vision pipelines</b>, and high-performance inference APIs.
+          </p>
+          <code style="background:#2A0A4A; color:#C4B5FD; padding:4px 8px; border-radius:4px; font-size:0.85rem;">
+            FOCUS : Algorithms → Evaluation → Optimization → Production
+          </code>
+        </td>
+        <td width="45%" style="text-align: center; vertical-align: middle;">
+          <img src="./assets/neural-core-3d.svg" style="width: 100%; border-radius: 10px;" alt="3D Neural Core" />
+        </td>
+      </tr>
+    </table>
+
+    <img src="./assets/divider.svg" class="divider" />
+
+    <!-- SECTION 3: CURRENT FOCUS -->
+    <h2>⚡ CURRENT FOCUS</h2>
+    <table>
+      <tr>
+        <td width="50%" class="focus-card" style="vertical-align: top;">
+          <h3>🛠️ CURRENTLY BUILDING</h3>
+          <ul>
+            <li><b>AI-Powered Real-World Systems</b> — Autonomous agents, model pipelines, and inference services.</li>
+            <li><b>Machine Learning Applications</b> — Production predictive analytics with cross-validation.</li>
+            <li><b>Computer Vision Projects</b> — Spatial object detection & video stream analysis.</li>
+            <li><b>Research-Oriented Systems</b> — Reproducing benchmark architectures into clean code.</li>
+          </ul>
+        </td>
+        <td width="50%" class="focus-card" style="vertical-align: top;">
+          <h3>📚 CURRENTLY EXPLORING</h3>
+          <ul>
+            <li><b>Advanced Machine Learning</b> — In-depth optimization algorithms and ensemble methods.</li>
+            <li><b>Deep Learning & Neural Networks</b> — Attention mechanisms & latent space representations.</li>
+            <li><b>Computer Vision</b> — Semantic segmentation, tracking, and edge inference.</li>
+            <li><b>System Design & MLOps</b> — Model serving, containerization, and latency profiling.</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+
+    <img src="./assets/divider.svg" class="divider" />
+
+    <!-- SECTION 4: FEATURED PROJECTS -->
+    <h2>🚀 FEATURED PROJECTS</h2>
+    
+    <div class="project-card">
+      <a href="#" class="btn-repo">EXPLORE REPO</a>
+      <h3><code>01</code> &nbsp; Flagship AI Project</h3>
+      <p>An end-to-end intelligent system designed to automate complex inference tasks with custom neural network architectures and production-grade reliability.</p>
+      <div>
+        <img src="https://img.shields.io/badge/Python-0D0D0D?style=flat-square&logo=python&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/PyTorch-0D0D0D?style=flat-square&logo=pytorch&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/Transformers-0D0D0D?style=flat-square&logo=huggingface&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/FastAPI-0D0D0D?style=flat-square&logo=fastapi&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/Docker-0D0D0D?style=flat-square&logo=docker&logoColor=8B5CF6" />
+      </div>
+    </div>
+
+    <div class="project-card">
+      <a href="#" class="btn-repo">EXPLORE REPO</a>
+      <h3><code>02</code> &nbsp; Flagship Research Project</h3>
+      <p>Research-driven implementation evaluating state-of-the-art model performance, latent space representations, and hyperparameter dynamics across benchmark datasets.</p>
+      <div>
+        <img src="https://img.shields.io/badge/Python-0D0D0D?style=flat-square&logo=python&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/PyTorch-0D0D0D?style=flat-square&logo=pytorch&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/NumPy-0D0D0D?style=flat-square&logo=numpy&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/Pandas-0D0D0D?style=flat-square&logo=pandas&logoColor=8B5CF6" />
+      </div>
+    </div>
+
+    <div class="project-card">
+      <a href="#" class="btn-repo">EXPLORE REPO</a>
+      <h3><code>03</code> &nbsp; Machine Learning System</h3>
+      <p>Predictive analytics and classification engine with comprehensive feature engineering pipelines, cross-validation scoring, and automated model tracking.</p>
+      <div>
+        <img src="https://img.shields.io/badge/Python-0D0D0D?style=flat-square&logo=python&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/Scikit--Learn-0D0D0D?style=flat-square&logo=scikit-learn&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/Pandas-0D0D0D?style=flat-square&logo=pandas&logoColor=8B5CF6" />
+        <img src="https://img.shields.io/badge/Streamlit-0D0D0D?style=flat-square&logo=streamlit&logoColor=8B5CF6" />
+      </div>
+    </div>
+
+    <img src="./assets/divider.svg" class="divider" />
+
+    <!-- SECTION 5: TECH STACK -->
+    <h2>🧬 TECH STACK & ARSENAL</h2>
+    <div class="tech-stack-group">
+      <p style="margin-bottom: 12px;">
+        <img src="https://img.shields.io/badge/Python-0D0D0D?style=for-the-badge&logo=python&logoColor=8B5CF6&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/JavaScript-0D0D0D?style=for-the-badge&logo=javascript&logoColor=8B5CF6&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/SQL-0D0D0D?style=for-the-badge&logo=postgresql&logoColor=8B5CF6&labelColor=0D0D0D" />
+      </p>
+      <p style="margin-bottom: 12px;">
+        <img src="https://img.shields.io/badge/Scikit--Learn-0D0D0D?style=for-the-badge&logo=scikit-learn&logoColor=8B5CF6&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/PyTorch-0D0D0D?style=for-the-badge&logo=pytorch&logoColor=8B5CF6&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/TensorFlow-0D0D0D?style=for-the-badge&logo=tensorflow&logoColor=8B5CF6&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/Transformers-0D0D0D?style=for-the-badge&logo=huggingface&logoColor=8B5CF6&labelColor=0D0D0D" />
+      </p>
+      <p style="margin-bottom: 12px;">
+        <img src="https://img.shields.io/badge/Pandas-0D0D0D?style=for-the-badge&logo=pandas&logoColor=8B5CF6&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/NumPy-0D0D0D?style=for-the-badge&logo=numpy&logoColor=8B5CF6&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/OpenCV-0D0D0D?style=for-the-badge&logo=opencv&logoColor=8B5CF6&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/Docker-0D0D0D?style=for-the-badge&logo=docker&logoColor=8B5CF6&labelColor=0D0D0D" />
+        <img src="https://img.shields.io/badge/FastAPI-0D0D0D?style=for-the-badge&logo=fastapi&logoColor=8B5CF6&labelColor=0D0D0D" />
+      </p>
+    </div>
+
+    <img src="./assets/divider.svg" class="divider" />
+
+    <!-- SECTION 6: GITHUB METRICS -->
+    <h2>📊 SYSTEM METRICS & ANALYTICS</h2>
+    <table class="stats-table">
+      <tr>
+        <td width="50%">
+          <img src="https://github-readme-stats.vercel.app/api?username=torvalds&show_icons=true&include_all_commits=true&count_private=true&hide_border=false&border_radius=8&bg_color=050505&title_color=8B5CF6&text_color=F5F3FF&icon_color=A855F7&border_color=2A0A4A" style="max-width:100%; height:auto;" alt="Stats Preview" />
+        </td>
+        <td width="50%">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=torvalds&layout=compact&hide_border=false&border_radius=8&bg_color=050505&title_color=8B5CF6&text_color=F5F3FF&border_color=2A0A4A" style="max-width:100%; height:auto;" alt="Top Languages Preview" />
+        </td>
+      </tr>
+    </table>
+
+    <div class="philosophy-box">
+      "Build deeply. Understand completely. Improve continuously."
+      <div style="font-size: 0.85rem; font-style: normal; margin-top: 8px; color: var(--electric-violet); letter-spacing: 2px;">
+        PRECISION OVER HYPERBOLE • CODE OVER PROMISES • ARCHITECTURE OVER HACKS
+      </div>
+    </div>
+
+    <!-- CONNECT -->
+    <div class="footer-connect">
+      <img src="https://img.shields.io/badge/LinkedIn-0D0D0D?style=for-the-badge&logo=linkedin&logoColor=8B5CF6&labelColor=0D0D0D" />
+      <img src="https://img.shields.io/badge/Email-0D0D0D?style=for-the-badge&logo=gmail&logoColor=8B5CF6&labelColor=0D0D0D" />
+      <img src="https://img.shields.io/badge/Portfolio-0D0D0D?style=for-the-badge&logo=google-chrome&logoColor=8B5CF6&labelColor=0D0D0D" />
+      <img src="https://img.shields.io/badge/GitHub-0D0D0D?style=for-the-badge&logo=github&logoColor=8B5CF6&labelColor=0D0D0D" />
+    </div>
+
+  </div>
+
+</body>
+</html>

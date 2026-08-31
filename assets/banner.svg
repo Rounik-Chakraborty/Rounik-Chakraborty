@@ -1,0 +1,215 @@
+<svg width="1200" height="380" viewBox="0 0 1200 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="60%" fx="50%" fy="30%">
+      <stop offset="0%" stop-color="#2A0A4A" stop-opacity="0.95" />
+      <stop offset="45%" stop-color="#120524" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#050505" stop-opacity="1" />
+    </radialGradient>
+    <radialGradient id="accentOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#6D28D9" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Super Concentrated Spotlight Behind RK -->
+    <radialGradient id="rkSpotlight2D" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.8" />
+      <stop offset="35%" stop-color="#8B5CF6" stop-opacity="0.5" />
+      <stop offset="70%" stop-color="#6D28D9" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Linear Gradients -->
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6D28D9" />
+      <stop offset="30%" stop-color="#8B5CF6" />
+      <stop offset="70%" stop-color="#C084FC" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.8" />
+      <stop offset="30%" stop-color="#2A0A4A" stop-opacity="0.4" />
+      <stop offset="70%" stop-color="#2A0A4A" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Ultra-Intense Filters -->
+    <filter id="superGlow2D" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14" result="blurDeep" />
+      <feGaussianBlur stdDeviation="7" result="blurMid" />
+      <feGaussianBlur stdDeviation="3" result="blurCore" />
+      <feMerge>
+        <feMergeNode in="blurDeep" />
+        <feMergeNode in="blurMid" />
+        <feMergeNode in="blurCore" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow2D" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="cyberGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8B5CF6" stroke-width="0.8" stroke-opacity="0.12" />
+      <circle cx="40" cy="0" r="1" fill="#C084FC" fill-opacity="0.4" />
+    </pattern>
+  </defs>
+
+  <style>
+    .title-text {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 900;
+      letter-spacing: 16px;
+    }
+    .mono-text {
+      font-family: 'Fira Code', 'SF Mono', Monaco, Consolas, monospace;
+      letter-spacing: 3px;
+    }
+    .tag-text {
+      font-family: 'Fira Code', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      fill: #C084FC;
+    }
+    .rk-pulse {
+      animation: neonPulse 3s infinite ease-in-out;
+    }
+    @keyframes neonPulse {
+      0%, 100% { filter: drop-shadow(0 0 14px #A855F7) drop-shadow(0 0 35px #8B5CF6) drop-shadow(0 0 65px #6D28D9); }
+      50% { filter: drop-shadow(0 0 22px #C084FC) drop-shadow(0 0 50px #A855F7) drop-shadow(0 0 90px #8B5CF6); }
+    }
+  </style>
+
+  <!-- Base Canvas -->
+  <rect width="1200" height="380" rx="16" fill="#050505" />
+  <rect width="1200" height="380" rx="16" fill="url(#bgGlow)" />
+  <rect width="1200" height="380" rx="16" fill="url(#cyberGrid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="600" cy="160" r="220" fill="url(#rkSpotlight2D)" />
+  <circle cx="150" cy="80" r="160" fill="url(#accentOrb)" opacity="0.7" />
+  <circle cx="1050" cy="300" r="160" fill="url(#accentOrb)" opacity="0.7" />
+
+  <!-- Neural Network Connections (Left Side) -->
+  <g stroke="#A855F7" stroke-opacity="0.3" stroke-width="1.4">
+    <line x1="80" y1="120" x2="160" y2="80" />
+    <line x1="80" y1="120" x2="180" y2="180" />
+    <line x1="160" y1="80" x2="240" y2="140" />
+    <line x1="180" y1="180" x2="240" y2="140" />
+    <line x1="180" y1="180" x2="140" y2="270" />
+    <line x1="240" y1="140" x2="310" y2="210" />
+    <line x1="140" y1="270" x2="260" y2="290" />
+    <line x1="260" y1="290" x2="310" y2="210" />
+    <line x1="60" y1="230" x2="140" y2="270" />
+  </g>
+  <!-- Neural Nodes (Left) -->
+  <g fill="#C084FC" filter="url(#superGlow2D)">
+    <circle cx="80" cy="120" r="4" fill-opacity="0.8" />
+    <circle cx="160" cy="80" r="5" fill-opacity="0.9" />
+    <circle cx="180" cy="180" r="4.5" fill-opacity="0.8" />
+    <circle cx="240" cy="140" r="6" fill="#FFFFFF" />
+    <circle cx="140" cy="270" r="4" fill-opacity="0.7" />
+    <circle cx="260" cy="290" r="5" fill-opacity="0.8" />
+    <circle cx="310" cy="210" r="5.5" fill="#A855F7" />
+    <circle cx="60" cy="230" r="3.5" fill-opacity="0.6" />
+  </g>
+
+  <!-- Neural Network Connections (Right Side) -->
+  <g stroke="#A855F7" stroke-opacity="0.3" stroke-width="1.4">
+    <line x1="1120" y1="120" x2="1040" y2="80" />
+    <line x1="1120" y1="120" x2="1020" y2="180" />
+    <line x1="1040" y1="80" x2="960" y2="140" />
+    <line x1="1020" y1="180" x2="960" y2="140" />
+    <line x1="1020" y1="180" x2="1060" y2="270" />
+    <line x1="960" y1="140" x2="890" y2="210" />
+    <line x1="1060" y1="270" x2="940" y2="290" />
+    <line x1="940" y1="290" x2="890" y2="210" />
+    <line x1="1140" y1="230" x2="1060" y2="270" />
+  </g>
+  <!-- Neural Nodes (Right) -->
+  <g fill="#C084FC" filter="url(#superGlow2D)">
+    <circle cx="1120" cy="120" r="4" fill-opacity="0.8" />
+    <circle cx="1040" cy="80" r="5" fill-opacity="0.9" />
+    <circle cx="1020" cy="180" r="4.5" fill-opacity="0.8" />
+    <circle cx="960" cy="140" r="6" fill="#FFFFFF" />
+    <circle cx="1060" cy="270" r="4" fill-opacity="0.7" />
+    <circle cx="940" cy="290" r="5" fill-opacity="0.8" />
+    <circle cx="890" cy="210" r="5.5" fill="#A855F7" />
+    <circle cx="1140" cy="230" r="3.5" fill-opacity="0.6" />
+  </g>
+
+  <!-- High-Tech Corner HUD Accents -->
+  <g stroke="#A855F7" stroke-width="2" opacity="0.85">
+    <path d="M 24 48 L 24 24 L 48 24" fill="none" />
+    <line x1="28" y1="28" x2="40" y2="28" stroke="#C084FC" stroke-width="2.5" />
+    <path d="M 1176 48 L 1176 24 L 1152 24" fill="none" />
+    <line x1="1172" y1="28" x2="1160" y2="28" stroke="#C084FC" stroke-width="2.5" />
+    <path d="M 24 332 L 24 356 L 48 356" fill="none" />
+    <line x1="28" y1="352" x2="40" y2="352" stroke="#C084FC" stroke-width="2.5" />
+    <path d="M 1176 332 L 1176 356 L 1152 356" fill="none" />
+    <line x1="1172" y1="352" x2="1160" y2="352" stroke="#C084FC" stroke-width="2.5" />
+  </g>
+
+  <!-- Outer Boundary Frame -->
+  <rect x="12" y="12" width="1176" height="356" rx="10" fill="none" stroke="url(#borderGrad)" stroke-width="1.8" />
+
+  <!-- Top System Badge Pill -->
+  <g transform="translate(460, 40)">
+    <rect x="0" y="0" width="280" height="28" rx="14" fill="#0D0D0D" stroke="#8B5CF6" stroke-width="1.2" />
+    <circle cx="20" cy="14" r="5" fill="#C084FC" filter="url(#superGlow2D)" />
+    <text x="36" y="18" class="tag-text" font-weight="700">SYSTEM STATUS // ONLINE</text>
+  </g>
+
+  <!-- ULTRA-LUMINOUS 4-LAYER "RK" TYPOGRAPHY -->
+  <g class="rk-pulse" transform="translate(600, 160)">
+    <!-- Layer 1: Deep Outer Neon Violet Bloom Halo -->
+    <text x="0" y="0" text-anchor="middle" class="title-text" font-size="98" fill="none" stroke="#6D28D9" stroke-width="16" stroke-linejoin="round" opacity="0.9" filter="url(#superGlow2D)">
+      RK
+    </text>
+    <!-- Layer 2: Electric Magenta/Violet Luminous Outline -->
+    <text x="0" y="0" text-anchor="middle" class="title-text" font-size="98" fill="none" stroke="#A855F7" stroke-width="9" stroke-linejoin="round" opacity="1" filter="url(#superGlow2D)">
+      RK
+    </text>
+    <!-- Layer 3: Bright Lavender Radiant Inline -->
+    <text x="0" y="0" text-anchor="middle" class="title-text" font-size="98" fill="#E9D5FF" stroke="#C084FC" stroke-width="3" stroke-linejoin="round" filter="url(#softGlow2D)">
+      RK
+    </text>
+    <!-- Layer 4: Brilliant Pure White Core -->
+    <text x="0" y="0" text-anchor="middle" class="title-text" font-size="98" fill="#FFFFFF">
+      RK
+    </text>
+  </g>
+
+  <!-- Futuristic Horizontal Neon Divider -->
+  <g transform="translate(600, 215)">
+    <line x1="-240" y1="0" x2="240" y2="0" stroke="url(#neonGradient)" stroke-width="2.5" filter="url(#superGlow2D)" />
+    <polygon points="0,-6 6,0 0,6 -6,0" fill="#FFFFFF" filter="url(#superGlow2D)" />
+    <circle cx="-240" cy="0" r="3" fill="#C084FC" />
+    <circle cx="240" cy="0" r="3" fill="#C084FC" />
+  </g>
+
+  <!-- Core Professional Subtitle -->
+  <text x="600" y="255" text-anchor="middle" class="mono-text" font-size="14" font-weight="700" fill="#F5F3FF" filter="url(#softGlow2D)">
+    AI • MACHINE LEARNING • INTELLIGENT SYSTEMS
+  </text>
+
+  <!-- Lower Tech Telemetry Bar -->
+  <g transform="translate(600, 315)">
+    <rect x="-250" y="-14" width="500" height="28" rx="6" fill="#0D0D0D" fill-opacity="0.9" stroke="#8B5CF6" stroke-width="1.2" />
+    <text x="0" y="4" text-anchor="middle" class="mono-text" font-size="11" font-weight="600" fill="#C084FC">
+      [ RESEARCH // ARCHITECTURE // DEPLOYMENT ]
+    </text>
+  </g>
+
+  <!-- Corner Telemetry Text -->
+  <text x="45" y="342" class="tag-text" fill="#8B5CF6" font-weight="600">LOC: 0x7F // CORE_v4.2</text>
+  <text x="1155" y="342" text-anchor="end" class="tag-text" fill="#8B5CF6" font-weight="600">SYS_MODE: PRODUCTION</text>
+</svg>

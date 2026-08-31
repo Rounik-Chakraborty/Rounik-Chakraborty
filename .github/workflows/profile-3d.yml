@@ -1,0 +1,34 @@
+name: GitHub Profile 3D & Snake Animation
+
+on:
+  schedule: # Runs every 24 hours at midnight
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Generate 3D Contributions and Snake
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate 3D Isometric Contribution Graph
+        uses: yoshi389111/github-profile-3d-contrib@0.7.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: Generate 3D Snake Eating Contribution Graph
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#8B5CF6&color_dots=#050505,#2A0A4A,#6D28D9,#8B5CF6,#A855F7
+
+      - name: Commit & Push Generated 3D SVGs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A .
+          git commit -m "chore: auto-generate updated 3D contribution graphs" || exit 0
+          git push
