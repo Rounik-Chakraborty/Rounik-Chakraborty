@@ -284,10 +284,25 @@
 <br />
 
 <!-- SECTION 7: 3D CONTRIBUTION ACTIVITY -->
-## 📈 CONTRIBUTION ACTIVITY
+## 📈 3D CONTRIBUTION ACTIVITY
 
 <div align="center">
 
+  <!-- 3D ISOMETRIC CONTRIBUTION MATRIX -->
+  <a href="https://github.com/Rounik-Chakraborty">
+    <img src="https://raw.githubusercontent.com/Rounik-Chakraborty/Rounik-Chakraborty/main/assets/contribution-3d.svg" width="100%" alt="3D Isometric Contribution Matrix" />
+  </a>
+
+  <br /><br />
+
+  <!-- 3D CONTRIBUTION EATER SNAKE -->
+  <a href="https://github.com/Rounik-Chakraborty">
+    <img src="https://raw.githubusercontent.com/Rounik-Chakraborty/Rounik-Chakraborty/main/assets/github-contribution-grid-snake-dark.svg" width="100%" alt="3D Contribution Snake Animation" />
+  </a>
+
+  <br /><br />
+
+  <!-- LIVE CONTRIBUTION TELEMETRY GRAPH -->
   <a href="https://github.com/Rounik-Chakraborty">
     <img src="https://github-readme-activity-graph.vercel.app/graph?username=Rounik-Chakraborty&bg_color=050505&color=8B5CF6&line=A855F7&point=F5F3FF&area=true&area_color=2A0A4A&hide_border=false&border_color=2A0A4A&border_radius=8" width="100%" alt="Contribution Activity Graph" />
   </a>

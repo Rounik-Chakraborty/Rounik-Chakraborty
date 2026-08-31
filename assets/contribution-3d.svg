@@ -1,0 +1,362 @@
+<svg width="1000" height="340" viewBox="0 0 1000 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="contribBg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1A0533" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#0D0D0D" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#050505" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="c3dGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="b1" />
+      <feGaussianBlur stdDeviation="1.5" result="b2" />
+      <feMerge>
+        <feMergeNode in="b1" />
+        <feMergeNode in="b2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <linearGradient id="scanWave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0" />
+      <stop offset="50%" stop-color="#C084FC" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Colors for Isometric 3D Blocks -->
+    <!-- Level 0 (Empty) -->
+    <linearGradient id="top0" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1030" /><stop offset="100%" stop-color="#130820" />
+    </linearGradient>
+    
+    <!-- Level 1 (Low) -->
+    <linearGradient id="top1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C1D95" /><stop offset="100%" stop-color="#2E1065" />
+    </linearGradient>
+
+    <!-- Level 2 (Medium) -->
+    <linearGradient id="top2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" /><stop offset="100%" stop-color="#5B21B6" />
+    </linearGradient>
+
+    <!-- Level 3 (High) -->
+    <linearGradient id="top3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" /><stop offset="100%" stop-color="#7E22CE" />
+    </linearGradient>
+
+    <!-- Level 4 (Max Peak) -->
+    <linearGradient id="top4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9D5FF" /><stop offset="100%" stop-color="#C084FC" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @keyframes sweep3D {
+      0% { transform: translateX(-150px); opacity: 0; }
+      20% { opacity: 0.85; }
+      80% { opacity: 0.85; }
+      100% { transform: translateX(950px); opacity: 0; }
+    }
+
+    @keyframes pulsePillar {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .scanner-beam {
+      animation: sweep3D 6s ease-in-out infinite;
+    }
+
+    .pulse-block {
+      animation: pulsePillar 3s ease-in-out infinite;
+    }
+
+    .hud-text {
+      font-family: 'Fira Code', monospace;
+      letter-spacing: 1.5px;
+    }
+  </style>
+
+  <!-- Base Container -->
+  <rect width="1000" height="340" rx="14" fill="#050505" stroke="#2A0A4A" stroke-width="1.5" />
+  <rect width="1000" height="340" rx="14" fill="url(#contribBg)" />
+
+  <!-- Top HUD Header -->
+  <g transform="translate(30, 32)">
+    <text x="0" y="0" class="hud-text" font-size="13" font-weight="700" fill="#F5F3FF">
+      3D ISOMETRIC CONTRIBUTION MATRIX // 52 WEEKS
+    </text>
+    <text x="940" y="0" text-anchor="end" class="hud-text" font-size="11" fill="#A855F7">
+      [ STATUS: SYNCHRONIZED ]
+    </text>
+    <line x1="0" y1="12" x2="940" y2="12" stroke="#2A0A4A" stroke-width="1" />
+  </g>
+
+  <!-- 3D ISOMETRIC CONTRIBUTION GRID -->
+  <!-- We render an isometric grid of 28 representative weekly clusters across 7 days -->
+  <g transform="translate(180, 80)">
+
+    <!-- Ambient Grid Underlay -->
+    <g opacity="0.4">
+      <!-- Grid Lines -->
+      <line x1="0" y1="90" x2="620" y2="90" stroke="#6D28D9" stroke-width="0.8" stroke-dasharray="4 6" />
+      <line x1="0" y1="130" x2="620" y2="130" stroke="#6D28D9" stroke-width="0.8" stroke-dasharray="4 6" />
+      <line x1="0" y1="170" x2="620" y2="170" stroke="#6D28D9" stroke-width="0.8" stroke-dasharray="4 6" />
+    </g>
+
+    <!-- ISOMETRIC 3D CUBES (Repeated Row & Columns with Varied Activity Heights) -->
+    <!-- Helper pattern: isometric column step dx=22, dy=11 -->
+
+    <!-- ROW 1 (Mon) -->
+    <g transform="translate(0, 20)">
+      <!-- Day 1 -->
+      <g transform="translate(0, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,20 0,14" fill="#1E0B38"/>
+        <polygon points="12,12 24,6 24,14 12,20" fill="#2E1065"/>
+      </g>
+      <!-- Day 2 -->
+      <g transform="translate(24, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/>
+        <polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/>
+      </g>
+      <!-- Day 3 -->
+      <g transform="translate(48, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/>
+        <polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/>
+      </g>
+      <!-- Day 4 (Peak) -->
+      <g transform="translate(72, -8)" class="pulse-block">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,38 0,32" fill="#7C3AED"/>
+        <polygon points="12,12 24,6 24,32 12,38" fill="#A855F7"/>
+      </g>
+      <!-- Day 5 -->
+      <g transform="translate(96, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/>
+        <polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/>
+      </g>
+      <!-- Day 6 -->
+      <g transform="translate(120, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top0)" stroke="#2A0A4A" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,16 0,10" fill="#0D0517"/>
+        <polygon points="12,12 24,6 24,10 12,16" fill="#170A2A"/>
+      </g>
+      <!-- Day 7 -->
+      <g transform="translate(144, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/>
+        <polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/>
+      </g>
+      <!-- Day 8 -->
+      <g transform="translate(168, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,20 0,14" fill="#1E0B38"/>
+        <polygon points="12,12 24,6 24,14 12,20" fill="#2E1065"/>
+      </g>
+      <!-- Day 9 -->
+      <g transform="translate(192, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/>
+        <polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/>
+      </g>
+      <!-- Day 10 -->
+      <g transform="translate(216, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/>
+        <polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/>
+      </g>
+      <!-- Day 11 -->
+      <g transform="translate(240, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/>
+        <polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/>
+      </g>
+      <!-- Day 12 -->
+      <g transform="translate(264, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/>
+        <polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/>
+      </g>
+      <!-- Day 13 -->
+      <g transform="translate(288, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,20 0,14" fill="#1E0B38"/>
+        <polygon points="12,12 24,6 24,14 12,20" fill="#2E1065"/>
+      </g>
+      <!-- Day 14 (Peak) -->
+      <g transform="translate(312, -10)" class="pulse-block">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,42 0,36" fill="#7C3AED"/>
+        <polygon points="12,12 24,6 24,36 12,42" fill="#A855F7"/>
+      </g>
+      <!-- Day 15 -->
+      <g transform="translate(336, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/>
+        <polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/>
+      </g>
+      <!-- Day 16 -->
+      <g transform="translate(360, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/>
+        <polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/>
+      </g>
+      <!-- Day 17 -->
+      <g transform="translate(384, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/>
+        <polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/>
+      </g>
+      <!-- Day 18 -->
+      <g transform="translate(408, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,20 0,14" fill="#1E0B38"/>
+        <polygon points="12,12 24,6 24,14 12,20" fill="#2E1065"/>
+      </g>
+      <!-- Day 19 -->
+      <g transform="translate(432, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/>
+        <polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/>
+      </g>
+      <!-- Day 20 -->
+      <g transform="translate(456, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/>
+        <polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/>
+      </g>
+      <!-- Day 21 -->
+      <g transform="translate(480, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/>
+        <polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/>
+      </g>
+      <!-- Day 22 -->
+      <g transform="translate(504, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/>
+        <polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/>
+      </g>
+      <!-- Day 23 -->
+      <g transform="translate(528, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/>
+        <polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/>
+        <polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/>
+      </g>
+      <!-- Day 24 -->
+      <g transform="translate(552, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/>
+        <polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/>
+      </g>
+      <!-- Day 25 -->
+      <g transform="translate(576, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/>
+        <polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/>
+      </g>
+      <!-- Day 26 -->
+      <g transform="translate(600, 0)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/>
+        <polygon points="0,6 12,12 12,38 0,32" fill="#7C3AED"/>
+        <polygon points="12,12 24,6 24,32 12,38" fill="#A855F7"/>
+      </g>
+    </g>
+
+    <!-- ROW 2 (Wed) -->
+    <g transform="translate(12, 60)">
+      <!-- Blocks -->
+      <g transform="translate(0, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(24, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(48, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(72, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(96, -6)" class="pulse-block"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,40 0,34" fill="#7C3AED"/><polygon points="12,12 24,6 24,34 12,40" fill="#A855F7"/></g>
+      <g transform="translate(120, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(144, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/><polygon points="0,6 12,12 12,20 0,14" fill="#1E0B38"/><polygon points="12,12 24,6 24,14 12,20" fill="#2E1065"/></g>
+      <g transform="translate(168, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(192, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(216, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(240, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(264, -8)" class="pulse-block"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,42 0,36" fill="#7C3AED"/><polygon points="12,12 24,6 24,36 12,42" fill="#A855F7"/></g>
+      <g transform="translate(288, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(312, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/><polygon points="0,6 12,12 12,20 0,14" fill="#1E0B38"/><polygon points="12,12 24,6 24,14 12,20" fill="#2E1065"/></g>
+      <g transform="translate(336, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(360, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(384, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(408, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(432, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(456, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(480, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(504, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,38 0,32" fill="#7C3AED"/><polygon points="12,12 24,6 24,32 12,38" fill="#A855F7"/></g>
+      <g transform="translate(528, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(552, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(576, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(600, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+    </g>
+
+    <!-- ROW 3 (Fri) -->
+    <g transform="translate(24, 100)">
+      <g transform="translate(0, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/><polygon points="0,6 12,12 12,20 0,14" fill="#1E0B38"/><polygon points="12,12 24,6 24,14 12,20" fill="#2E1065"/></g>
+      <g transform="translate(24, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(48, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(72, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(96, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(120, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(144, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(168, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/><polygon points="0,6 12,12 12,20 0,14" fill="#1E0B38"/><polygon points="12,12 24,6 24,14 12,20" fill="#2E1065"/></g>
+      <g transform="translate(192, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(216, -6)" class="pulse-block"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,40 0,34" fill="#7C3AED"/><polygon points="12,12 24,6 24,34 12,40" fill="#A855F7"/></g>
+      <g transform="translate(240, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(264, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(288, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(312, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(336, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/><polygon points="0,6 12,12 12,20 0,14" fill="#1E0B38"/><polygon points="12,12 24,6 24,14 12,20" fill="#2E1065"/></g>
+      <g transform="translate(360, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(384, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(408, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(432, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(456, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,36 0,30" fill="#6D28D9"/><polygon points="12,12 24,6 24,30 12,36" fill="#9333EA"/></g>
+      <g transform="translate(480, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(504, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(528, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,38 0,32" fill="#7C3AED"/><polygon points="12,12 24,6 24,32 12,38" fill="#A855F7"/></g>
+      <g transform="translate(552, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/><polygon points="0,6 12,12 12,30 0,24" fill="#4C1D95"/><polygon points="12,12 24,6 24,24 12,30" fill="#6D28D9"/></g>
+      <g transform="translate(576, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/><polygon points="0,6 12,12 12,24 0,18" fill="#2E1065"/><polygon points="12,12 24,6 24,18 12,24" fill="#4C1D95"/></g>
+      <g transform="translate(600, 0)"><polygon points="12,0 24,6 12,12 0,6" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.8" filter="url(#c3dGlow)"/><polygon points="0,6 12,12 12,38 0,32" fill="#7C3AED"/><polygon points="12,12 24,6 24,32 12,38" fill="#A855F7"/></g>
+    </g>
+
+    <!-- SCANNER WAVE LIGHT BEAM -->
+    <g class="scanner-beam">
+      <line x1="0" y1="0" x2="0" y2="160" stroke="url(#scanWave)" stroke-width="3" filter="url(#c3dGlow)" />
+    </g>
+  </g>
+
+  <!-- BOTTOM METRICS & LEGEND BAR -->
+  <g transform="translate(30, 290)">
+    <line x1="0" y1="0" x2="940" y2="0" stroke="#2A0A4A" stroke-width="1" />
+    
+    <!-- Legend -->
+    <text x="0" y="24" class="hud-text" font-size="10" fill="#8B5CF6">LESS</text>
+    <polygon points="46,14 52,17 46,20 40,17" fill="url(#top0)" stroke="#2A0A4A" stroke-width="0.5"/>
+    <polygon points="62,14 68,17 62,20 56,17" fill="url(#top1)" stroke="#6D28D9" stroke-width="0.5"/>
+    <polygon points="78,14 84,17 78,20 72,17" fill="url(#top2)" stroke="#8B5CF6" stroke-width="0.5"/>
+    <polygon points="94,14 100,17 94,20 88,17" fill="url(#top3)" stroke="#A855F7" stroke-width="0.5"/>
+    <polygon points="110,14 116,17 110,20 104,17" fill="url(#top4)" stroke="#FFFFFF" stroke-width="0.5"/>
+    <text x="124" y="24" class="hud-text" font-size="10" fill="#8B5CF6">MORE</text>
+
+    <!-- Telemetry Stats -->
+    <text x="940" y="24" text-anchor="end" class="hud-text" font-size="10" fill="#C4B5FD">
+      ENGINEERING CYCLE: CONTINUOUS // ARCHITECTURE: 3D ISOMETRIC
+    </text>
+  </g>
+
+  <!-- Corner Brackets -->
+  <path d="M 12 24 L 12 12 L 24 12" stroke="#8B5CF6" stroke-width="1.5" fill="none" />
+  <path d="M 988 24 L 988 12 L 976 12" stroke="#8B5CF6" stroke-width="1.5" fill="none" />
+  <path d="M 12 316 L 12 328 L 24 328" stroke="#8B5CF6" stroke-width="1.5" fill="none" />
+  <path d="M 988 316 L 988 328 L 976 328" stroke="#8B5CF6" stroke-width="1.5" fill="none" />
+</svg>
